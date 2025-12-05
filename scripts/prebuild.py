@@ -1,7 +1,7 @@
 import shutil
 
-fps_cu_to_cpp = ["fastlisaresponse/cutils/src/LISAResponse"]
-fps_pyx = ["fastlisaresponse/cutils/src/responselisa"]
+fps_cu_to_cpp = ["src/fastlisaresponse/cutils/LISAResponse"]
+fps_pyx = ["src/fastlisaresponse/cutils/responselisa"]
 
 for fp in fps_cu_to_cpp:
     shutil.copy(fp + ".cu", fp + ".cpp")
@@ -18,7 +18,7 @@ for line in lines:
     if line.startswith("Current Version"):
         version_string = line.split("Current Version: ")[1].split("\n")[0]
 
-with open("fastlisaresponse/_version.py", "w") as f:
+with open("src/fastlisaresponse/_version.py", "w") as f:
     f.write("__version__ = '{}'".format(version_string))
 
 import requests
